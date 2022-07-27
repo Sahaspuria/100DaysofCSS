@@ -1,5 +1,5 @@
 # Day 4
 
 <p align="center">
-<img src="./screenshot.png">
+<img src="Screenshot.png">
 </p>
