@@ -1,0 +1,281 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  background-color: #42a7a1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.big {
+  position: absolute;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.small {
+  position: absolute;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.card {
+  width: 28rem;
+  height: 24rem;
+  box-shadow: 10px 10px 15px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 6rem 18rem;
+}
+
+.card__header {
+  background-color: #f1ba64;
+  color: #fff;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.card__header .date {
+  bottom: 1.2rem;
+}
+
+.card__header .type {
+  right: 1.5rem;
+}
+
+.card__header .price {
+  right: 1.5rem;
+  top: 2.7rem;
+}
+
+.card__data {
+  background-color: #fff;
+  color: #606060;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(4, calc(18rem / 4));
+}
+
+.card__data .values {
+  grid-row: 1/2;
+  grid-column: 5/-1;
+  margin: auto;
+}
+
+.card__data .values__views {
+  position: relative;
+}
+
+.card__data .values__views::before {
+  position: absolute;
+  top: 50%;
+  left: -1.5rem;
+  content: "";
+  width: 8px;
+  height: 2px;
+  background-color: #fa7373;
+}
+
+.card__data .values__purchases {
+  position: relative;
+  margin-left: 2rem;
+}
+
+.card__data .values__purchases::before {
+  position: absolute;
+  top: 50%;
+  left: -1.5rem;
+  content: "";
+  width: 8px;
+  height: 2px;
+  background-color: #7ba2ff;
+}
+
+.card__data .statistics {
+  grid-column: 1/-1;
+  margin: 0 1rem;
+}
+
+.card__data .statistics polyline {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.card__data .statistics .grid-lines {
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+}
+
+.card__data .statistics .grid-lines span {
+  position: absolute;
+  width: 90%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.card__data .statistics .grid-lines .line-1 {
+  top: 10rem;
+}
+
+.card__data .statistics .grid-lines .line-2 {
+  top: 15rem;
+}
+
+.card__data .statistics .grid-lines .line-3 {
+  top: 20rem;
+}
+
+.card__data .statistics span[class*="point-"] {
+  position: absolute;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  padding: 0.3rem;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+  text-align: center;
+  transform: scale(0.4);
+  transition: transform 0.2s ease;
+}
+
+.card__data .statistics span[class*="point-"]:hover {
+  color: #fff;
+  border-radius: 3px;
+  transform: scale(1) translate3d(0, -50%, 0);
+  transition: transform 0.2s ease;
+}
+
+.card__data .statistics .data-red {
+  position: absolute;
+}
+
+.card__data .statistics .data-red polyline {
+  stroke: #fa7373;
+}
+
+.card__data .statistics .data-red span {
+  color: #fa7373;
+  background-color: #fa7373;
+}
+
+.card__data .statistics .data-red .point-1 {
+  top: 3.5rem;
+}
+
+.card__data .statistics .data-red .point-2 {
+  left: 4rem;
+  top: 0.2rem;
+}
+
+.card__data .statistics .data-red .point-3 {
+  top: 1.2rem;
+  left: 8rem;
+}
+
+.card__data .statistics .data-red .point-4 {
+  top: 0;
+  left: 12rem;
+}
+
+.card__data .statistics .data-red .point-5 {
+  top: 2.7rem;
+  left: 16rem;
+}
+
+.card__data .statistics .data-red .point-6 {
+  top: 3.65rem;
+  left: 20rem;
+}
+
+.card__data .statistics .data-red .point-7 {
+  top: 0.8rem;
+  left: 24rem;
+}
+
+.card__data .statistics .data-blue {
+  position: absolute;
+}
+
+.card__data .statistics .data-blue polyline {
+  stroke: #7ba2ff;
+}
+
+.card__data .statistics .data-blue span {
+  color: #7ba2ff;
+  background-color: #7ba2ff;
+}
+
+.card__data .statistics .data-blue .point-1 {
+  top: 5rem;
+}
+
+.card__data .statistics .data-blue .point-2 {
+  left: 4rem;
+  top: 4rem;
+}
+
+.card__data .statistics .data-blue .point-3 {
+  top: 5.5rem;
+  left: 8rem;
+}
+
+.card__data .statistics .data-blue .point-4 {
+  top: 4.5rem;
+  left: 12rem;
+}
+
+.card__data .statistics .data-blue .point-5 {
+  top: 5rem;
+  left: 16rem;
+}
+
+.card__data .statistics .data-blue .point-6 {
+  top: 6.4rem;
+  left: 20rem;
+}
+
+.card__data .statistics .data-blue .point-7 {
+  top: 5.5rem;
+  left: 24rem;
+}
+
+.card__data .weekdays {
+  grid-row: 4;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/*# sourceMappingURL=main.css.map */
