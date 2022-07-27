@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; //10px
+}
+
+// Variables
+$clr-background: #e56262;
+
+$bezier: cubic-bezier(0.21, 0.98, 0.6, 0.99);
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: $clr-background;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// EDIT after this Line ---->
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  & > * {
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 4px 6px 5px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &--1 {
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    z-index: 3;
+    animation: pop-1 2s $bezier infinite alternate;
+  }
+  &--2 {
+    position: absolute;
+    height: 6rem;
+    width: 6rem;
+    z-index: 2;
+    animation: pop-2 2s $bezier infinite alternate;
+  }
+  &--3 {
+    position: absolute;
+    height: 9rem;
+    width: 9rem;
+    z-index: 1;
+    animation: pop-3 2s $bezier infinite alternate;
+  }
+}
+
+@keyframes pop-1 {
+  0%,
+  70% {
+    box-shadow: 4px 8px 5px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(0);
+  }
+
+  100% {
+    box-shadow: 5px 8px 10px 0 rgba(0, 0, 0, 0.3);
+    transform: scale(1);
+  }
+}
+
+@keyframes pop-2 {
+  0%,
+  40% {
+    box-shadow: 4px 8px 5px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(0);
+  }
+
+  100% {
+    box-shadow: 5px 8px 10px 0 rgba(0, 0, 0, 0.3);
+    transform: scale(1);
+  }
+}
+
+@keyframes pop-3 {
+  0%,
+  10% {
+    box-shadow: 4px 8px 5px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(0);
+  }
+
+  100% {
+    box-shadow: 5px 8px 10px 0 rgba(0, 0, 0, 0.3);
+    transform: scale(1);
+  }
+}
