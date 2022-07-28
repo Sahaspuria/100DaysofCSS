@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; //10px
+}
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #272c34;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Variables
+$clr-background: #272c34;
+$clr-sun: #ffef00;
+$clr-pyramid: #e7e6e6;
+$clr-pyramid-2: #d1cece;
+$clr-sky: #7ddffc;
+$clr-sand: #f0de75;
+$clr-shadow: #c0b25e;
+
+$cubic-bezier: cubic-bezier(0.4, 0, 0.49, 1);
+
+// EDIT after this Line ---->
+
+.container {
+  position: relative;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: fadeIn 4s $cubic-bezier infinite;
+
+  .sky {
+    background-color: $clr-sky;
+    height: 10rem;
+    animation: sky-animation 4s $cubic-bezier infinite;
+  }
+
+  .sun {
+    position: absolute;
+    top: 1rem;
+    left: 7rem;
+    height: 2.4rem;
+    width: 2.4rem;
+    z-index: 2;
+    border-radius: 50%;
+    background-color: $clr-sun;
+    transform-origin: 50% 400%;
+    animation: sun-animation 4s $cubic-bezier infinite;
+  }
+  .pyramid {
+    position: absolute;
+    bottom: 5rem;
+    left: 3rem;
+    width: 0;
+    height: 0;
+    border-left: 5rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 4rem solid $clr-pyramid;
+    animation: pyramid-animation 4s $cubic-bezier infinite;
+
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: -4rem;
+      left: 0rem;
+      width: 0;
+      height: 0;
+      border-left: 0rem solid transparent;
+      border-right: 4rem solid transparent;
+      border-bottom: 4rem solid $clr-pyramid-2;
+      animation: pyramid-2-animation 4s $cubic-bezier infinite;
+    }
+  }
+
+  .shadow {
+    position: absolute;
+    z-index: 2;
+    bottom: 2rem;
+    left: 3rem;
+    height: 3rem;
+    width: 9rem;
+    background: rgba(0, 0, 0, 0.2);
+    transform-origin: 50% 0%;
+    clip-path: polygon(100% 0%, 0% 0%, 100% 0%);
+    animation: shadow-animation 4s $cubic-bezier infinite;
+  }
+
+  .sand {
+    background-color: $clr-sand;
+    height: 5rem;
+    animation: sand-animation 4s $cubic-bezier infinite;
+  }
+}
+
+// Animations
+
+@keyframes sun-animation {
+  0% {
+    background: #f57209;
+    transform: rotate(-70deg);
+  }
+
+  25% {
+    background: #ffef00;
+    transform: rotate(-28deg);
+  }
+
+  50% {
+    background: #ffef00;
+  }
+  75% {
+    background: #ffef00;
+    transform: rotate(28deg);
+  }
+
+  100% {
+    background: #f57209;
+    transform: rotate(70deg);
+  }
+}
+@keyframes sky-animation {
+  0% {
+    filter: brightness(100%);
+  }
+
+  25% {
+    filter: brightness(90%);
+  }
+
+  50% {
+    filter: brightness(80%);
+  }
+  75% {
+    filter: brightness(50%);
+  }
+
+  100% {
+    filter: brightness(20%);
+  }
+}
+@keyframes sand-animation {
+  0% {
+    filter: brightness(100%);
+  }
+
+  25% {
+    filter: brightness(90%);
+  }
+
+  50% {
+    filter: brightness(80%);
+  }
+  75% {
+    filter: brightness(50%);
+  }
+
+  100% {
+    filter: brightness(20%);
+  }
+}
+
+@keyframes shadow-animation {
+  0% {
+    clip-path: polygon(100% 0, 0 0, 100% 3%);
+  }
+
+  25% {
+    clip-path: polygon(100% 0, 0 0, 91% 44%);
+  }
+  50% {
+    clip-path: polygon(100% 0, 0 0, 56% 100%);
+  }
+  75% {
+    clip-path: polygon(100% 0, 0 0, 20% 81%);
+  }
+  100% {
+    clip-path: polygon(100% 0, 0 0, 0% 13%);
+  }
+}
+@keyframes pyramid-animation {
+  0% {
+    border-bottom: 4rem solid $clr-pyramid;
+  }
+  50% {
+    border-bottom: 4rem solid $clr-pyramid-2;
+  }
+  70% {
+    filter: brightness(90%);
+  }
+  100% {
+    border-bottom: 4rem solid $clr-pyramid-2;
+    filter: brightness(60%);
+  }
+}
+@keyframes pyramid-2-animation {
+  0% {
+    border-bottom: 4rem solid $clr-pyramid-2;
+  }
+  50% {
+    border-bottom: 4rem solid $clr-pyramid;
+  }
+  70% {
+    filter: brightness(95%);
+  }
+  100% {
+    border-bottom: 4rem solid $clr-pyramid;
+    filter: brightness(50%);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
